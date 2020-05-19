@@ -42,7 +42,9 @@ group :development, :test do
 #  gem 'selenium-webdriver'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
-  gem 'database_cleaner-active_record'
+  gem 'database_cleaner'
+  gem 'rubocop-rspec'
+  gem 'rubocop-rails'
 end
 
 group :development do

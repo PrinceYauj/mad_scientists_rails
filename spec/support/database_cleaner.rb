@@ -1,6 +1,6 @@
 # frozen_string_literal: true
-=begin
-require 'database_cleaner/active_record'
+
+require 'database_cleaner'
 
 RSpec.configure do |config|
   config.before(:suite) do
@@ -14,4 +14,3 @@ RSpec.configure do |config|
     end
   end
 end
-=end
