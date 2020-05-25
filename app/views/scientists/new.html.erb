@@ -1,0 +1,17 @@
+<h1>Create scientist</h1>
+
+<%= form_for @scientist, url: { action: "create" }  do |f| %>
+  <p>
+    <%= f.label :madness %><br>
+    <%= f.text_field :madness %>
+  </p>
+ 
+  <p>
+    <%= f.label :attempts %><br>
+    <%= f.text_field :attempts %>
+  </p>
+ 
+  <p>
+    <%= f.submit "Create scientist" %>
+  </p>
+<% end %>

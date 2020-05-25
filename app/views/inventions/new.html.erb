@@ -1,0 +1,22 @@
+<h1>Create invention</h1>
+
+<%= form_for @invention, url: { action: "create" }  do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :power %><br>
+    <%= f.text_field :power %>
+  </p>
+
+  <p>
+    <%= f.label :scientist_id %><br>
+    <%= f.text_field :scientist_id %>
+  </p>
+
+  <p>
+    <%= f.submit "Create invention" %>
+  </p>
+<% end %>

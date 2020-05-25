@@ -1,0 +1,32 @@
+<h1>Showing invention</h1>
+ 
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Power</th>
+      <th>Scientist</th>
+      <th>Created_at</h>
+      <th>Updated_at</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+ 
+  <tr>
+    <td><%= @invention.id %></td>
+    <td><%= @invention.name %></td>
+    <td><%= @invention.power %></td>
+    <td><%= @invention.scientist_id %></td>
+    <td><%= @invention.created_at %></td>
+    <td><%= @invention.updated_at %></td>
+    <td><%= link_to 'Edit', edit_invention_path(@invention.id) %></td>
+    <td><%= link_to 'Destroy', invention_path(@invention.id), method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+</table>
+ 
+<br>
+ 
+<%= link_to 'Inventions list', inventions_path %>
+

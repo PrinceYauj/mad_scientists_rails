@@ -1,0 +1,32 @@
+<h1>Showing scientist</h1>
+ 
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Madness</th>
+      <th>Attempts</th>
+      <th>Inventions</th>
+      <th>Created_at</th>
+      <th>Updated_at</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+ 
+  <tr>
+    <td><%= @scientist.id %></td>
+    <td><%= @scientist.madness %></td>
+    <td><%= @scientist.attempts %></td>
+    <td><%= @scientist.inventions.inject('') { |str, inv| 
+              str << inv.id.to_s + ', ' }.chop.chop %></td>
+    <td><%= @scientist.created_at %></td>
+    <td><%= @scientist.updated_at %></td>
+    <td><%= link_to 'Edit', edit_scientist_path(@scientist.id) %></td>
+    <td><%= link_to 'Destroy', @scientist, method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+</table>
+ 
+<br>
+ 
+<%= link_to 'Scientists list', scientists_path %>

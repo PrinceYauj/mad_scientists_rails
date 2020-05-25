@@ -1,0 +1,32 @@
+<h1>Listing inventions</h1>
+ 
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Power</th>
+      <th>Scientist</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+ 
+  <% @inventions.each do |invention| %>
+    <tr>
+      <td><%= invention.id %></td>
+      <td><%= invention.name %></td>
+      <td><%= invention.power %></td>
+      <td><%= invention.scientist_id %></td>
+      <td><%= link_to 'Show', invention %></td>
+      <td><%= link_to 'Edit', edit_invention_path(invention.id) %></td>
+      <td><%= link_to 'Destroy', invention, method: :delete,
+                data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+ 
+<br>
+ 
+<%= link_to 'New invention', new_invention_path %>
+<br>
+<%= link_to 'Scientists', scientists_path %>
