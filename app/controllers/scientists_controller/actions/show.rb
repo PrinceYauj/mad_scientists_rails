@@ -11,4 +11,3 @@ module Byg
     end
   end
 end
-

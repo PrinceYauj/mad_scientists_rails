@@ -6,7 +6,7 @@ FactoryBot.define do
     name { 'a' }
     power { 1 }
     scientist_id { create(:scientist).id }
-    created_at { Time.now }
-    updated_at { Time.now }
+    created_at { Time.current }
+    updated_at { Time.current }
   end
 end

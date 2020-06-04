@@ -10,7 +10,7 @@ module Byg
       end
 
       def self.create(params)
-        Actions::Inventions::Create.new(params).create
+        Actions::Inventions::Create.new.create(params)
       end
 
       def self.show(params)
@@ -18,7 +18,7 @@ module Byg
       end
 
       def self.update(params)
-        Actions::Inventions::Update.new(params).update
+        Actions::Inventions::Update.new.update(params)
       end
 
       def self.destroy(params)

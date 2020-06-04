@@ -6,6 +6,10 @@ require:
   - rubocop-rspec
   - rubocop-rails
 
+RSpec/MultipleExpectations:
+  Exclude:
+    - spec/**/*_spec.rb
+
 Metrics/BlockLength:
   Exclude:
     - db/migrations/*

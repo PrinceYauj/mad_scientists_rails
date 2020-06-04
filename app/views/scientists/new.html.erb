@@ -1,5 +1,11 @@
 <h1>Create scientist</h1>
 
+Will create a new scientist with provided parameters. <br>
+If any parameter is missing, will use default value <br>
+instead and create a record anyway. It can be edited <br>
+later <br>
+
+
 <%= form_for @scientist, url: { action: "create" }  do |f| %>
   <p>
     <%= f.label :madness %><br>

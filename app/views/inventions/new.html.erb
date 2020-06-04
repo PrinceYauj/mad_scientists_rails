@@ -1,5 +1,10 @@
 <h1>Create invention</h1>
 
+Will create a new invention with provided parameters. <br>
+If any parameter is missing, will use default value <br>
+instead and create a record anyway. The only exception <br>
+is scientist_id parameter which is necessary. <br>
+
 <%= form_for @invention, url: { action: "create" }  do |f| %>
   <p>
     <%= f.label :name %><br>

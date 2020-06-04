@@ -9,23 +9,10 @@ module Byg
       # trying to initialize them with default values
       # and create a record anyway
       class Create
-        def initialize(params)
-          @params = params.permit!.to_hash["scientist"].symbolize_keys
-                      .slice(:madness, :attempts)
-          @params[:madness] ||= 1
-          @params[:attempts] ||= 1
-        end
-
-        def create
+        def create(params)
           Scientist.create!(params)
         end
-
-        private
-
-        attr_reader :params
-
       end
     end
   end
 end
-

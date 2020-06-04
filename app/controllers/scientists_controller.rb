@@ -1,7 +1,12 @@
-require_relative 'scientists_controller/rest.rb'
+# frozen_string_literal: true
+
+require_relative 'scientists_controller/rest'
+require_relative 'scientists_controller/prepare_params'
 
 class ScientistsController < ApplicationController
   include Byg
+  include Byg::Support::Scientists
+
   def index
     @scientists = Byg::Rest::Scientists.index
   end
@@ -11,7 +16,7 @@ class ScientistsController < ApplicationController
   end
 
   def create
-    @scientist = Byg::Rest::Scientists.create(params)
+    @scientist = Byg::Rest::Scientists.create(prepare_create(params))
     redirect_to @scientist
   end
 
@@ -24,7 +29,7 @@ class ScientistsController < ApplicationController
   end
 
   def update
-    @scientist = Byg::Rest::Scientists.update(params)
+    @scientist = Byg::Rest::Scientists.update(prepare_update(params))
     redirect_to @scientist
   end
 

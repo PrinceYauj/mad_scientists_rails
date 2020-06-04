@@ -1,7 +1,11 @@
-require_relative 'inventions_controller/rest.rb'
+# frozen_string_literal: true
+
+require_relative 'inventions_controller/rest'
+require_relative 'inventions_controller/prepare_params'
 
 class InventionsController < ApplicationController
   include Byg
+  include Byg::Support::Inventions
   def index
     @inventions = Byg::Rest::Inventions.index
   end
@@ -11,7 +15,7 @@ class InventionsController < ApplicationController
   end
 
   def create
-    @invention = Byg::Rest::Inventions.create(params)
+    @invention = Byg::Rest::Inventions.create(prepare_create(params))
     redirect_to @invention
   end
 
@@ -24,7 +28,7 @@ class InventionsController < ApplicationController
   end
 
   def update
-    @invention = Byg::Rest::Inventions.update(params)
+    @invention = Byg::Rest::Inventions.update(prepare_update(params))
     redirect_to @invention
   end
 

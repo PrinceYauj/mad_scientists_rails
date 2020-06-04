@@ -5,8 +5,8 @@ FactoryBot.define do
     sequence :id
     madness { 1 }
     attempts { 1 }
-    created_at { Time.now }
-    updated_at { Time.now }
+    created_at { Time.current }
+    updated_at { Time.current }
 
     trait :with_inventions do
       after(:create) do |scientist|

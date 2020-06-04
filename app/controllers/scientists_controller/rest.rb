@@ -10,7 +10,7 @@ module Byg
       end
 
       def self.create(params)
-        Actions::Scientists::Create.new(params).create
+        Actions::Scientists::Create.new.create(params)
       end
 
       def self.show(params)
@@ -18,7 +18,7 @@ module Byg
       end
 
       def self.update(params)
-        Actions::Scientists::Update.new(params).update
+        Actions::Scientists::Update.new.update(params)
       end
 
       def self.destroy(params)
@@ -27,4 +27,3 @@ module Byg
     end
   end
 end
-

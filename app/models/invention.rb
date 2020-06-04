@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Invention < ApplicationRecord
   belongs_to :scientist
   validates :power, numericality: { greater_than: 0 }
