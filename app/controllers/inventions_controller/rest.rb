@@ -4,6 +4,7 @@ require_relative 'actions/actions.rb'
 
 module Byg
   module Rest
+    # provides methods for inventions controller
     module Inventions
       def self.index
         Actions::Inventions::Index.new.index

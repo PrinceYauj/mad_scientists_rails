@@ -17,9 +17,19 @@ RSpec.describe Scientist do
     end
 
     context 'with belonging inventions' do
-      let(:instance) { create(:scientist, :with_inventions) }
+      let!(:instance) { create(:scientist, :with_inventions) }
 
-      it { expect { destroy! }.to raise_error(ActiveRecord::InvalidForeignKey) }
+      it 'destroys scientists inventions ' do
+        expect(Invention.count).to be == 2
+        destroy!
+        expect(Invention.count).to be == 0
+      end
+
+      it 'destroys scientist' do
+        destroy!
+        expect { described_class.find(instance.id) }
+          .to raise_error(ActiveRecord::RecordNotFound)
+      end
     end
   end
 end

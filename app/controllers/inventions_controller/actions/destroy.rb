@@ -3,6 +3,7 @@
 module Byg
   module Actions
     module Inventions
+      # destroys invention
       class Destroy
         def destroy(params)
           Invention.find(params[:id]).destroy!

@@ -3,7 +3,7 @@
 require_relative 'inventions_controller/rest'
 require_relative 'inventions_controller/prepare_params'
 
-class InventionsController < ApplicationController
+class InventionsController < ApplicationController #:nodoc:
   include Byg
   include Byg::Support::Inventions
   def index

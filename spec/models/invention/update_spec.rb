@@ -6,7 +6,7 @@ RSpec.describe Invention do
   describe '.update!' do
     subject(:update!) { instance.update!(params) }
 
-    let(:instance) { create(:invention) }
+    let(:instance) { create(:invention, id: 1) }
     let(:scientist) { create(:scientist) }
 
     context 'with valid id' do
@@ -18,10 +18,16 @@ RSpec.describe Invention do
       end
     end
 
-    context 'with invalid id' do
+    context 'with nil id' do
       let(:params) { { id: nil } }
 
       it { expect { update! }.to raise_error(ActiveRecord::NotNullViolation) }
+    end
+
+    context 'with not numeric id' do
+      let(:params) { { id: 'a' } }
+
+      it { expect { update! }.to change(instance, :id).from(1).to(0) }
     end
 
     context 'with not unique id' do

@@ -3,6 +3,7 @@
 module Byg
   module Actions
     module Inventions
+      # returns all inventions
       class Index
         def index
           Invention.all

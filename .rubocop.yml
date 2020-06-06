@@ -10,9 +10,13 @@ RSpec/MultipleExpectations:
   Exclude:
     - spec/**/*_spec.rb
 
+Naming/RescuedExceptionsVariableName:
+  Exclude:
+    - app/controllers/application_controller/error_handler.rb
+
 Metrics/BlockLength:
   Exclude:
-    - db/migrations/*
+    - db/migrate/*
     - spec/**/*_spec.rb
 
 RSpec/MessageSpies:

@@ -6,26 +6,38 @@ RSpec.describe Scientist do
   describe '.update!' do
     subject(:update!) { instance.update!(params) }
 
-    let(:instance) { create(:scientist, :with_inventions) }
+    let(:instance) { create(:scientist, :with_inventions, id: 1) }
 
     context 'with valid id' do
       let(:params) { { id: -1 } }
 
-      it 'raises an error if there are belonging inventions' do
-        expect { update! }.to raise_error(ActiveRecord::InvalidForeignKey)
+      it 'updates scientist if there are belonging inventions' do
+        update!
+        expect(instance.id).to be == -1
       end
 
-      it 'updates the scientist id if there are no belonging inventions' do
+      it 'updates invention of the scientist' do
+        update!
+        expect(instance.inventions.map(&:scientist_id).uniq).to be == [-1]
+      end
+
+      it 'updates scientist id if there are no belonging inventions' do
         instance.inventions.delete_all
         update!
         expect(instance.id).to be == -1
       end
     end
 
-    context 'with invalid id' do
+    context 'with nil id' do
       let(:params) { { id: nil } }
 
       it { expect { update! }.to raise_error(ActiveRecord::NotNullViolation) }
+    end
+
+    context 'with not numeric id' do
+      let(:params) { { id: 'a' } }
+
+      it { expect { update! }.to change(instance, :id).from(1).to(0) }
     end
 
     context 'with valid madness' do

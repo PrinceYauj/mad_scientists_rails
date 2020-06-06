@@ -3,7 +3,7 @@
 require_relative 'scientists_controller/rest'
 require_relative 'scientists_controller/prepare_params'
 
-class ScientistsController < ApplicationController
+class ScientistsController < ApplicationController #:nodoc:
   include Byg
   include Byg::Support::Scientists
 

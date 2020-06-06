@@ -4,6 +4,7 @@ require_relative 'actions/actions.rb'
 
 module Byg
   module Rest
+    # provides methods for scientists controller
     module Scientists
       def self.index
         Actions::Scientists::Index.new.index

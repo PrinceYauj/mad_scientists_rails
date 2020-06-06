@@ -2,6 +2,7 @@
 
 module Byg
   module Support
+    # transform ActionController::Parameters into hash
     module Scientists
       def prepare_create(params)
         res = params.permit!.to_hash['scientist'].symbolize_keys
@@ -13,8 +14,9 @@ module Byg
 
       def prepare_update(params)
         res = params.permit!.to_hash['scientist'].symbolize_keys
-                    .slice(:madness, :attempts).delete_if { |_, v| v.blank? }
-        res[:id] = params[:id]
+                    .slice(:madness, :attempts, :id)
+                    .delete_if { |_, v| v.blank? }
+        res[:old_id] = params[:id]
         res
       end
     end

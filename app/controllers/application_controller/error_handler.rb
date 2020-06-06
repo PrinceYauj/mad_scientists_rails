@@ -2,6 +2,7 @@
 
 module Byg
   module Support
+    # provides error handling for all application controller
     module ErrorHandler
       def handle_exceptions
         yield

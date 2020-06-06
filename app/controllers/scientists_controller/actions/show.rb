@@ -3,6 +3,7 @@
 module Byg
   module Actions
     module Scientists
+      # returns particular scientist
       class Show
         def show(params)
           Scientist.find(params[:id])

@@ -2,22 +2,27 @@
 
 <%= form_for @invention, url: { action: "update" }  do |f| %>
   <p>
+    <%= f.label :ID %><br>
+    <%= f.number_field :id %>
+  </p>
+
+  <p>
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </p>
 
   <p>
     <%= f.label :power %><br>
-    <%= f.text_field :power %>
+    <%= f.number_field :power %>
   </p>
 
   <p>
     <%= f.label :scientist_id %><br>
-    <%= f.text_field :scientist_id %>
+    <%= f.number_field :scientist_id %>
   </p>
 
   <p>
     <%= f.submit "Update invention" %>
   </p>
 <% end %>
-
+<%= link_to "Changed my mind", controller: "inventions", action: "index" %>

@@ -2,7 +2,7 @@
 
 require_relative 'application_controller/error_handler'
 
-class ApplicationController < ActionController::Base
+class ApplicationController < ActionController::Base #:nodoc:
   protect_from_forgery with: :exception
   include Byg::Support::ErrorHandler
   around_action :handle_exceptions

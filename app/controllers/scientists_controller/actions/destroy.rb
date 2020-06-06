@@ -3,6 +3,7 @@
 module Byg
   module Actions
     module Scientists
+      # destroys scientist along with his inventions, if any
       class Destroy
         def destroy(params)
           Scientist.find(params[:id]).destroy!

@@ -2,17 +2,22 @@
 
 <%= form_for @scientist, url: { action: "update" }  do |f| %>
   <p>
+    <%= f.label :ID %><br>
+    <%= f.number_field :id %>
+  </p>
+
+  <p>
     <%= f.label :madness %><br>
-    <%= f.text_field :madness %>
+    <%= f.number_field :madness %>
   </p>
  
   <p>
     <%= f.label :attempts %><br>
-    <%= f.text_field :attempts %>
+    <%= f.number_field :attempts %>
   </p>
  
   <p>
     <%= f.submit "Update scientist" %>
   </p>
 <% end %>
-
+<%= link_to "Changed my mind", controller: "scientists", action: "index" %>

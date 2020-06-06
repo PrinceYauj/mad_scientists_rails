@@ -4,8 +4,7 @@ RSpec.describe 'POST /inventions', type: :request do
   # https://github.com/turbolinks/turbolinks-rails/issues/38
   subject(:http_request) do
     post '/inventions', params: { invention:
-                                  { scientist_id: scientist.id }
-                                }
+                                  { scientist_id: scientist.id } }
   end
 
   let(:scientist) { create(:scientist) }

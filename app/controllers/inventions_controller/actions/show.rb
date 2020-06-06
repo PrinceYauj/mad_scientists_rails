@@ -3,6 +3,7 @@
 module Byg
   module Actions
     module Inventions
+      # returns particular invention
       class Show
         def show(params)
           Invention.find(params[:id])

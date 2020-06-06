@@ -21,7 +21,8 @@
       <td><%= link_to 'Show', scientist %></td>
       <td><%= link_to 'Edit', edit_scientist_path(scientist.id) %></td>
       <td><%= link_to 'Destroy', scientist, method: :delete,
-                data: { confirm: 'Are you sure?' } %></td>
+                data: { confirm: 'Are you sure? It will cascade delete
+all belonging inventions (if any)' } %></td>
     </tr>
   <% end %>
 </table>
